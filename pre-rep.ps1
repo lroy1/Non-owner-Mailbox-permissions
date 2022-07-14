@@ -1,4 +1,4 @@
-Install-Module ExchangeOnlineManagement
+Install-Module ExchangeOnlineManagement -Scope CurrentUser
 Import-Module ExchangeOnlineManagement
 
 Connect-ExchangeOnline
