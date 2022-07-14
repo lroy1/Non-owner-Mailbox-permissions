@@ -14,7 +14,7 @@ ForEach ($M in $Mbx) {
     $MbxStatus = $M.DisplayName + " ["+ $MbxNumber +"/" + $Mbx.Count + "]"
     Write-Progress -Activity "Processing mailbox" -Status $MbxStatus -PercentComplete $PercentComplete
     $PercentComplete += $ProgressDelta
-    $Permissions = Get-MailboxPermission -Identity $M.UserPrincipalName | ? {$_.User -Like "*@*" }
+    $Permissions = Get-MailboxPermission -Identity $M.UserPrincipalName | Where-Object {$_.User -Like "*@*" }
    # $otherthanfullacess = Get-RecipientPermission -Identity $M.UserPrincipalName    
     If ($Null -ne $Permissions) {
        # Grab each permission and output it into the report
